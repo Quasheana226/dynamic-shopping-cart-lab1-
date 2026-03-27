@@ -28,4 +28,11 @@ function removeItem(event) {
 addProductButton.addEventListener('click', () => {
   const name = productNameInput.value.trim();
   const price = parseFloat(productPriceInput.value);
+
+  //making sure that the input is empty or valid 
+
+  if (name === "" || isNaN(price ) || price <= 0){
+    alert("Please enter valid produvt name!");
+    return; // function should stop here
+  }
 })
