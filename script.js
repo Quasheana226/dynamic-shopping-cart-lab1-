@@ -1,8 +1,8 @@
-const productNameInput = document.querySelector('#product-name');
-const productPriceInput = document.querySelector('#product-price');
-const addProductButton = document.querySelector('#add-product');
-const cart = document.querySelector('#cart');
-const totalPriceSpan = document.querySelector('#total-price');
+const productNameInput = document.getElementById('product-name');
+const productPriceInput = document.getElementById('product-price');
+const addProductButton = document.getElementById('add-product');
+const cart = document.getElementById('cart');
+const totalPriceSpan = document.getElementById('total-price');
  
 let totalPrice = 0;
  
@@ -19,4 +19,3 @@ function removeItem(event) {
   updateTotalPrice(-price);
   item.remove();
 }
-
