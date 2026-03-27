@@ -35,4 +35,20 @@ addProductButton.addEventListener('click', () => {
     alert("Please enter valid produvt name!");
     return; // function should stop here
   }
+
+ const ListItem = document.createElement('li');
+
+ // storing the price to the data set
+
+ ListItem.dataset.price = price ;
+
+
+ // setting the price for the product item
+ ListItem.innerHTML = `
+ ${name} - $${price.toFixed(2)}
+ <button class="remove-btn">Remove</button>`;
+ 
+
+
+
 })
