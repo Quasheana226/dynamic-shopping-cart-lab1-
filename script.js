@@ -18,10 +18,6 @@ function removeItem(event) {
   const price = parseFloat(item.dataset.price);
   updateTotalPrice(-price);
   item.remove();
-
-  // Subtracting the price from the total
-  updateTotalPrice(price);
-  item.remove();
 }
 
 // Adding products 
@@ -30,34 +26,33 @@ addProductButton.addEventListener('click', () => {
   const price = parseFloat(productPriceInput.value);
 
   //making sure that the input is empty or valid 
-
   if (name === "" || isNaN(price) || price <= 0) {
-    alert("Please enter valid produvt name!");
+    alert("Please enter valid product name!");
     return; // function should stop here
   }
 
-  const ListItem = document.createElement('li');
+  const listItem = document.createElement('li');
 
   // storing the price to the data set
-
-  ListItem.dataset.price = price;
-
+  listItem.dataset.price = price;
 
   // setting the price for the product item
-  ListItem.innerHTML = `
- ${name} - $${price.toFixed(2)}
- <button class="remove-btn">Remove</button>`;
+  listItem.innerHTML = `
+    ${name} - $${price.toFixed(2)}
+    <button class="remove-btn">Remove</button>`;
 
-
-  //add item and update tottal 
-  cart.appendChild(ListItem);
+  //add item and update total 
+  cart.appendChild(listItem);
   updateTotalPrice(price);
-
 
   productNameInput.value = "";
   productPriceInput.value = "";
 
+}); // closes addProductButton listener
 
-
-
-});
+// cart listener lives outside and on its own
+cart.addEventListener('click', (event) => {
+  if (event.target.classList.contains('remove-btn')) {
+    removeItem(event);
+  }
+}); // closes cart listener
