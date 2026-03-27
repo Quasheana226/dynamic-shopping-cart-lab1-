@@ -47,7 +47,15 @@ addProductButton.addEventListener('click', () => {
  ListItem.innerHTML = `
  ${name} - $${price.toFixed(2)}
  <button class="remove-btn">Remove</button>`;
+
+
+ //add item and update tottal 
+ cart.appendChild(ListItem);
+ updateTotalPrice(price);
+
  
+
+
 
 
 
