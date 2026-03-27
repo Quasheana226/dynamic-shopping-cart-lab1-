@@ -18,4 +18,14 @@ function removeItem(event) {
   const price = parseFloat(item.dataset.price);
   updateTotalPrice(-price);
   item.remove();
+
+  // Subtracting the price from the total
+  updateTotalPrice(price);
+  item.remove();
 }
+
+// Adding products 
+addProductButton.addEventListener('click', () => {
+  const name = productNameInput.value.trim();
+  const price = parseFloat(productPriceInput.value);
+})
